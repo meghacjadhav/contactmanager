@@ -10,8 +10,8 @@ const ContactSchema = mongoose.Schema({
         phoneNo:{type:Number , require:true},
         country:{type:String , require:true}
     }],
-    userRef:{type:hg , require:true} //mongoose-id
-    // userRef:"pooja@gmail.com"
+    userRef:{type:mongoose.Schema.Types.ObjectId , ref:"users"}
+    
 })
 
 const Contact = mongoose.model("contacts", ContactSchema)
