@@ -10,7 +10,7 @@ const ContactSchema = mongoose.Schema({
         phoneNo:{type:Number , require:true},
         country:{type:String , require:true}
     }],
-    userRef:{type:mongoose.Schema.Types.ObjectId , ref:"users"}
+    userRef:{type:Schema.Types.ObjectId , ref:"users"}
     
 })
 
