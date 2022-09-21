@@ -1,17 +1,22 @@
 const express = require("express");
+require("dotenv").config();
+const port =  8080;
+const mongoose = require("mongoose");
 const app = express();
-const PORT = 8080;
+const login = require("./routers/login");
+const register = require("./routers/register")
+const bodyParser=require('body-parser')
 
-app.get("/", (req, res) => {
-  res.send("<h1>Hello World</h1>");
-});
+mongoose.connect("mongodb+srv://contactmanager:contactmanager@cluster0.jvlvlig.mongodb.net/Contact-Manager?retryWrites=true&w=majority",
+{ useNewUrlParser: true, useUnifiedTopology: true },()=>console.log("DB is connected"))
 
-app.get("*", (req, res) => {
-  res.status(404).json({
-    status: "Failed",
-    message: "Invalid Path",
-  });
-});
-app.listen(PORT, () => {
-  console.log(`Server is up at http://localhost:${PORT}/`);
+
+app.use(bodyParser())
+app.use("/login",login);
+app.use("/register",register)
+
+
+
+app.listen(port, () => {
+  console.log(`Server is up at http://localhost:${port}/`);
 });
