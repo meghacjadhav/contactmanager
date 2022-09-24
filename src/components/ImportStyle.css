@@ -1,0 +1,119 @@
+img.importlogoImg {
+  width: 14px;
+  height: 17px;
+}
+button.importBtn {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: #000000;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 1px 1px 20px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  width: 143px;
+  height: 41px;
+  border: none;
+  gap: 10px;
+}
+button.importBtn:hover {
+  cursor: pointer;
+}
+.popup {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  width: 345px;
+  height: 318px !important;
+  background: #ffffff;
+  border-radius: 10px;
+  border: none;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+
+.popuptext {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 37px;
+  color: #1f2633;
+}
+.popuplink {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  color: #2da5fc;
+  width: 245px;
+  margin: 5px 0;
+  opacity: 0.8;
+}
+button.popupbtn {
+  width: 124px;
+  height: 34px;
+  background: #2da5fc;
+  border-radius: 5px;
+  border: none;
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.highlighted {
+  background: aliceblue;
+  -webkit-box-shadow: 0 0 5px 2px #fff;
+  -moz-box-shadow: 0 0 5px 2px #fff;
+  box-shadow: 0 0 5px 2px #fff;
+}
+
+/* //////////////////////////////////////////////////////////////////////// */
+.row1 {
+  display: flex;
+  margin: 20px;
+  gap: 20px;
+}
+
+.row2 {
+  display: flex;
+  margin: 20px;
+  gap: 20px;
+}
+.rowContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* /////////////////////////////////////// */
+#mainContacts
+  > div
+  > div.row2
+  > div
+  > div.popupbtncontainer
+  > button:nth-child(2) {
+  background: #fff;
+  color: #000;
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 37px;
+  color: #1f2633;
+}

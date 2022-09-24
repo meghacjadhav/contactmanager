@@ -1,0 +1,13 @@
+/* div#Maincontainer {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+} */
+.side-container {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+}
+button.signup.signinGuru {
+  margin: 5px auto !important;
+}
