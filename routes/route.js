@@ -6,32 +6,24 @@ const secret = "SECRET";
 
 //POST CONTACT PER USER
 router.post("/add", async (req, res) => {
-  const { name, designation, company, industry, phoneNo, country } = req.body;
   jwt.verify(req.headers.token, secret, (err, user) => {
     if (err) console.log(err.message);
     req.user = user.data;
   });
   try {
     let data = await Contact.find({ userRef: req.user });
-    if (data.length === 1) {
+    if (data.length > 1) {
       data = await Contact.find({ userRef: req.user }).updateOne(
         {},
         {
           $push: {
-            Contacts: {
-              name,
-              designation,
-              company,
-              industry,
-              phoneNo,
-              country,
-            },
+            Contacts: req.body,
           },
         }
       );
     } else {
       data = await Contact.create({
-        Contacts: { name, designation, company, industry, phoneNo, country },
+        Contacts: req.body,
         userRef: req.user,
       });
     }
@@ -49,20 +41,27 @@ router.post("/add", async (req, res) => {
 
 //Get ALL CONTACT DATA PER USER
 router.get("/get", async (req, res) => {
-  jwt.verify(req.headers.token, secret, (err, user) => {
-    if (err) console.log(err.message);
-    req.user = user.data;
-  });
-  try {
-    const data = await Contact.find({ userRef: req.user });
-    res.status(200).json({
-      status: "Sucess",
-      message: data,
+  if (req.headers.token !== null) {
+    jwt.verify(req.headers.token, secret, (err, user) => {
+      if (err) console.log(err.message);
+      else req.user = user.data;
     });
-  } catch (error) {
+    try {
+      const data = await Contact.find({ userRef: req.user });
+      res.status(200).json({
+        status: "Sucess",
+        message: data,
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: "Failed",
+        message: error.message,
+      });
+    }
+  } else {
     res.status(500).json({
       status: "Failed",
-      message: error.message,
+      message: "Please Refresh the Page",
     });
   }
 });
@@ -90,18 +89,4 @@ router.delete("/delete/:id", async (req, res) => {
   }
 });
 
-// //GET AS PER SEARCH
-// router.get("/search", async (req, res) => {
-//   jwt.verify(req.headers.token, "SECRET", (err, user) => {
-//     if (err) console.log(err.message);
-//     req.user = user.data;
-//   });
-//   const search = req.query.name;
-//   try {
-//     let data = await Contact.find({ name: { $regex: search, $options: "i" } });
-//     res.json(data);
-//   } catch (e) {
-//     res.json({ message: e.message });
-//   }
-// });
 module.exports = router;

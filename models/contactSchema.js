@@ -3,12 +3,13 @@ const mongoose = require("mongoose");
 const ContactSchema = mongoose.Schema({
   Contacts: [
     {
-      name: { type: String, require: true },
-      designation: { type: String, require: true },
-      company: { type: String, require: true },
-      industry: { type: String, require: true },
-      phoneNo: { type: Number, require: true },
-      country: { type: String, require: true },
+      name: { type: String, required: true },
+      designation: { type: String, required: true },
+      email: { type: String, required: true },
+      company: { type: String, required: true },
+      industry: { type: String, required: true },
+      phoneNo: { type: Number, required: true },
+      country: { type: String, required: true },
     },
   ],
 

@@ -4,9 +4,11 @@ const bodyParser = require("body-parser");
 const route = require("./routes/route.js");
 const login = require("./routes/login");
 const register = require("./routes/register");
+const cors = require("cors");
 
-const PORT = 8080;
 const app = express();
+app.use(cors());
+const PORT = 8080;
 require("dotenv").config();
 
 mongoose.connect(
