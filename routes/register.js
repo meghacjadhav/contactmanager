@@ -1,6 +1,6 @@
 const express = require("express");
 const data = require("../models/userSchema");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const { body, validationResult } = require("express-validator");
 const router = express.Router();
 require("dotenv").config();

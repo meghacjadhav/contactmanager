@@ -48,7 +48,7 @@
 // module.exports = router;
 
 const express = require("express");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const router = express.Router();
 const user = require("../models/userSchema");
 const jwt = require("jsonwebtoken");
