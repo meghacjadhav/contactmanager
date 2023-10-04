@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const APIContext = createContext();
 
 export function APIContextProvider({ children }) {
-  const herokuURL = "https://gpm-contact-manager.herokuapp.com/";
+  const herokuURL = "http://localhost:3000/";
   const navigate = useNavigate();
   const [contacts, setContacts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
